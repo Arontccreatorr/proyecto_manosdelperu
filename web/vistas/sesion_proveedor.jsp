@@ -78,5 +78,53 @@
         </div>
 
         <span class="spann">Si ya tienes una cuenta solo ➤ <button id="abrirModal"> Iniciar sesion</button></span>
+    
+    
+  <!-- Modal de login hecho por jose borjorquez -->
+  <div id="modalSesion" class="modal" style="display:none;">
+    <div class="formulario">
+      <div class="formulario-registro">
+        <span id="cerrarModal" style="float:right; font-size:28px; cursor:pointer;">
+          &times;
+        </span>
+        <h2>Iniciar Sesión</h2>
+        <form method="post" action="${pageContext.request.contextPath}/controlador_sesionproveedor">
+          <input type="email"    name="email"    placeholder="Correo electrónico" required>
+          <input type="password" name="password" placeholder="Contraseña"       required>
+          <div class="botones">
+            <button type="submit">Ingresar</button>
+            <button type="button"
+                    onclick="window.location.href='registro_proveedor.jsp'">
+              Registrar mi cuenta
+            </button>
+          </div>
+        </form>
+        <c:if test="${not empty loginError}">
+          <div style="color:red; margin-top:5px; font-size:15px;">
+            ${loginError}
+          </div>
+        </c:if>
+        <a href="RECUPERAR_CONTRASEÑA.jsp" style="color:black;">
+          Olvidé mi contraseña
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('abrirModal').onclick = () =>
+      document.getElementById('modalSesion').style.display = 'flex';
+    document.getElementById('cerrarModal').onclick = () =>
+      document.getElementById('modalSesion').style.display = 'none';
+    window.onclick = e => {
+      if (e.target === document.getElementById('modalSesion'))
+        document.getElementById('modalSesion').style.display = 'none';
+    };
+    <c:if test="${not empty loginError}">
+    window.onload = () =>
+      document.getElementById('modalSesion').style.display = 'flex';
+    </c:if>
+  </script>
+
     </body>
 </html>
