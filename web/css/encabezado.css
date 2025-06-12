@@ -1,0 +1,113 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+/* ENCABEZADO */
+.encabezado {
+    background: #8f8ff7;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* ✅ Para que se adapte en pantallas pequeñas */
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.logo-nombre {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.nombre-tienda {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #222;
+}
+
+.menu-central ul {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu-central ul li a {
+    text-decoration: none;
+    color: #222;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.menu-central ul li a:hover {
+    color: #4444aa;
+}
+
+.icono-carro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.carro {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 2px;
+}
+
+.icono-carro span {
+    font-size: 0.85em;
+    color: #222;
+    text-align: center;
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .encabezado {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-nombre {
+        justify-content: center;
+    }
+
+    .menu-central ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu-central ul li a {
+        font-size: 1em;
+    }
+
+    .icono-carro {
+        margin-top: 10px;
+    }
+
+
+}

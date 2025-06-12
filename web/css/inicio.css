@@ -1,0 +1,268 @@
+/* Fondo de la página y ajustes generales */
+body {
+    background-image: url('../img/logos/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+
+
+/* Estilos adicionales para la sección de productos y la cuadrícula */
+.titulo-seccion {
+    text-align: center;
+    font-size: 1.4em;
+    margin: 30px 0 10px 0;
+    color: #444;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas iguales */
+ 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.producto {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 25px 15px;
+    text-align: center;
+    margin-bottom: 30px; /* Añadido para mejorar el espacio entre productos */
+}
+
+.producto img {
+   width: 80px !important;
+    height: 80px !important;
+    border-radius: 8px;
+    margin: 0 auto 12px;
+    display: block;
+     object-fit: contain; 
+}
+
+.producto .info {
+    margin-bottom: 12px;
+    color: #333;
+    font-size: 1em;
+}
+
+.producto .info span {
+    display: block;
+    margin: 2px 0;
+}
+
+.producto .botones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.producto button {
+    padding: 7px 18px;
+    border: 1px solid #8fa6e6;
+    background: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #4a4a4a;
+    transition: background 0.2s;
+}
+
+.producto button:hover {
+    background: #1cb951;
+    color: #121dbd;
+}
+
+
+
+/* Modal fondo */
+#modalDNI {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(44, 62, 80, 0.45); /* azul oscuro translúcido */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+ 
+}
+#modalDNI.activo {
+    display: block; /* Cuando se muestra, usa flex para centrar */
+}
+
+/* Contenido del modal */
+/* Modal fondo */
+#modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(44, 62, 80, 0.45); /* azul oscuro translúcido */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+#modal.activo {
+    display: flex; /* Cuando se muestra, usa flex para centrar */
+}
+
+/* Contenido del modal */
+/* Overlay del modal */
+/* Overlay del modal (centrado mediante flex; el display se controla desde JS) */
+#modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(44, 62, 80, 0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    /* display: none; */  /* lo controla JS */
+}
+
+/* Contenedor interno: aplicamos al <form> */
+#modal form {
+    background: #ffffff;               /* fondo blanco */
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+    padding: 32px 28px 24px 28px;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;                   /* centrado horizontal en caso de overflow */
+    position: relative;
+    text-align: center;
+    border: 2px solid #8fa6e6;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Encabezado y párrafos */
+#modal h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #2c3e50;
+}
+#modal p {
+    margin: 4px 0;
+    color: #34495e;
+}
+
+/* Imagen del producto */
+#modal img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 0 auto 16px;
+}
+
+/* Inputs dentro del modal */
+#modal input[type="text"],
+#modal input[type="number"],
+#modal input[type="hidden"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #8fa6e6;
+    border-radius: 8px;
+    font-size: 1em;
+    outline: none;
+    transition: border 0.2s;
+}
+#modal input[type="text"]:focus,
+#modal input[type="number"]:focus {
+    border-color: #1cb951;
+}
+
+/* Botones agrupados */
+#modal .botonera {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Botón “Continuar” */
+#modal button[type="submit"] {
+    flex: 1;
+    padding: 8px 0;
+    background: #1cb951;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#modal button[type="submit"]:hover {
+    background: #121dbd;
+}
+
+/* Botón “Cerrar” */
+#modal button[type="button"] {
+    flex: 1;
+    padding: 8px 0;
+    background: transparent;
+    color: #8fa6e6;
+    border: 2px solid #8fa6e6;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+#modal button[type="button"]:hover {
+    color: #1cb951;
+    border-color: #1cb951;
+    background: rgba(28,185,81,0.1);
+}
+
+/* Mensaje de error */
+#errorDNI {
+    color: #e74c3c;
+    margin-top: 10px;
+    font-size: 0.98em;
+    display: none;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 480px) {
+    #modal form {
+        padding: 24px 16px 16px;
+        border-width: 1px;
+    }
+    #modal h2 { font-size: 1.25em; }
+}
+
+/* Media queries para móviles, si es necesario */
+
+/* Asegura que en celular sea 1 columna */
+@media (max-width: 600px) {
+    body {
+        background: #fff;
+        background-image: url('../img/logos/logocel.jpeg') !important;
+        background-size: cover;
+      background-repeat: repeat-y;
+        background-attachment: fixed; 
+        background-position: center top;
+        min-height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+    /* NO toques .encabezado ni .encabezado:after */
+    .grid-productos {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+}
+
+
+

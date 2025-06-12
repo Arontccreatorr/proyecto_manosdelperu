@@ -1,0 +1,128 @@
+/* Fondo de la página y ajustes generales */
+body {
+    background-image: url('../img/logos/fondo.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.compra {
+  display: flex;
+  justify-content: space-between; /* tabla a la izq, formulario a la der */
+  align-items: flex-start;
+  gap: 20px;
+
+  /* ocupa el 90% del viewport, pero nunca más de 1200px */
+  width: 90%;
+  max-width: 1200px;
+
+  /* centrar horizontalmente y un pequeño margen arriba y abajo */
+  margin: 40px auto;
+
+  /* tu padding interno */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.productos, .datos {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.productos {
+  /* opcional, puedes ajustar si quieres un ancho fijo relativo al padre */
+  flex: 2;  /* dos porciones de tres */
+  min-width: 0; /* para que no desborde en móviles */
+}
+
+.datos {
+  flex: 1;  /* una porción de tres */
+  min-width: 0;
+}
+.productos h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #555;
+}
+
+.productos table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.productos th, .productos td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.productos th {
+    background-color: #eaeaea;
+    color: #333;
+}
+
+.productos tr:last-child {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+.productos img {
+    max-width: 80px;
+    border-radius: 8px;
+}
+
+.datos form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.datos label {
+    font-weight: bold;
+    color: #555;
+}
+
+.datos input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.datos button {
+    padding: 12px;
+    background-color: #6c6cff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.datos button:hover {
+    background-color: #5050e5;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .compra {
+    flex-direction: column;
+    width: 100%;
+    margin: 20px auto;
+  }
+  .productos,
+  .datos {
+    width: 100%;
+  }
+}
