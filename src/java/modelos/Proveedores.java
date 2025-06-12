@@ -13,7 +13,7 @@ import java.io.InputStream;
 public class Proveedores {
      int id_proveedor;
      String dni;
-    InputStream img_provedor;
+    String img_provedor;
      String nombres;
      String apellidos;
      String correo;
@@ -45,11 +45,11 @@ public class Proveedores {
         this.dni = dni;
     }
 
-    public InputStream getImg_provedor() {
+    public String getImg_provedor() {
         return img_provedor;
     }
 
-    public void setImg_provedor(InputStream img_provedor) {
+    public void setImg_provedor(String img_provedor) {
         this.img_provedor = img_provedor;
     }
 

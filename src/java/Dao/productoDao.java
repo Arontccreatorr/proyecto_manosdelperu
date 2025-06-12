@@ -118,4 +118,31 @@ public class productoDao implements mostrar<Productos> {
             }
         }
     }
+   
+   /** Inserta un nuevo producto por jeremy poma */
+public int insertarProducto(Productos prod) throws SQLException {
+    String sql = "INSERT INTO producto (id_proveedor, nombre, descripcion, precio, stock, imagen) " +
+                 "VALUES (?, ?, ?, ?, ?, ?)";
+    try (Connection con = cn.getConnection();
+          PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        ps.setInt(1, prod.getIdProveedor());
+        ps.setString(2, prod.getNombre());
+        ps.setString(3, prod.getDescripcion());
+        ps.setDouble(4, prod.getPrecio());
+        ps.setInt(5, prod.getStock());
+        ps.setString(6, prod.getImagenprodcuto());
+       int affected = ps.executeUpdate();
+     if (affected == 0) {
+            throw new SQLException("No se insertó ningún producto");
+        }
+
+        try (ResultSet rs = ps.getGeneratedKeys()) {
+            if (rs.next()) {
+                return rs.getInt(1);
+            } else {
+                throw new SQLException("No se generó ID de producto");
+            }
+        }
+    }
+}
 }
