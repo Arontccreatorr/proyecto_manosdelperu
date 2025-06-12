@@ -43,4 +43,20 @@ public class proveedorDao {
     }
     return null;
 }
+    public boolean insertarProveedor(Proveedores p) throws SQLException {
+    String sql = "INSERT INTO proveedor (dni, img_provedor, nombres, apellidos, correo, contraseña, direccion, numero_contacto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    try (Connection con = cn.getConnection();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setString(1, p.getDni());
+        ps.setString(2, p.getImg_provedor());
+        ps.setString(3, p.getNombres());
+        ps.setString(4, p.getApellidos());
+        ps.setString(5, p.getCorreo());
+        ps.setString(6, p.getContraseña()); // Aquí puedes encriptar antes de guardar (usa BCrypt)
+        ps.setString(7, p.getDireccion());
+        ps.setString(8, p.getNumero_contacto());
+        return ps.executeUpdate() > 0;
+    }
+    }
 }
+    
